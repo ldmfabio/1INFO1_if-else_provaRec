@@ -7,11 +7,30 @@
     //Apresente em tela o cargo do usuário e também o valor final recebido pelas viagens realizadas.
 
     //ENTRADA
-
+    const viagensDia = parseInt(prompt(`Informe quantas viagens foram realizadas por dia:`));
+    const cargo = prompt(`Qual o cargo que ocupa? (M-Motorista | C-Cobrador)`).toUpperCase();
+    const valorDiaria = 100;
 
     //PROCESSAMENTO
-
+    let valorFinalDiaria = 0;
+    if (cargo === "M" && viagensDia <= 10) {
+        valorFinalDiaria = (valorDiaria * 0.2) + valorDiaria;
+    }
+    else if (cargo === "M" && viagensDia > 10) {
+        valorFinalDiaria = (valorDiaria * 0.35) + valorDiaria;
+    }
+    else if (cargo === "C" && viagensDia <= 10) {
+        valorFinalDiaria = valorDiaria;
+    }
+    else if (cargo === "C" && viagensDia > 10) {
+        valorFinalDiaria = (valorDiaria * 0.1) + valorDiaria;
+    }
 
     //SAÍDA
-
+    if (cargo === "C") {
+        document.write(`O cobrador receberá R$ ${valorFinalDiaria.toFixed(2)} de diária.`);
+    }
+    else {
+        document.write(`O motorista receberá R$ ${valorFinalDiaria.toFixed(2)} de diária.`);
+    }
 </script>
